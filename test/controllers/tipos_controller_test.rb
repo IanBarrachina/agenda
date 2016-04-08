@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TiposControllerTest < ActionController::TestCase
   setup do
-    @tipo = tipos(:one)
+    @tipo = tipos(:amigo)
   end
 
   test "should get index" do

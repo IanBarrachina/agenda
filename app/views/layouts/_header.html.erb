@@ -6,7 +6,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li>
-              <p>Hola <%= @user.email%></p>
+              <p>Hola <%= current_user.email%></p>
             </li>
             <li>
               <%= button_to('Logout', destroy_user_session_path, :method => :delete) %>        

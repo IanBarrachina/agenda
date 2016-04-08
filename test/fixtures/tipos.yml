@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  tipo: MyString
+amigo:
+  tipo: Amigo
 
-two:
-  tipo: MyString
+familiar:
+  tipo: Familiar
+
+compañero:
+  tipo: Compañero
