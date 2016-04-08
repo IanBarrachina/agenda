@@ -5,11 +5,11 @@ one:
   apellidos: MyString
   email: MyString1@test.com
   foto: MyString
-  user_id: ian
+  user: ian
 
 two:
   nombre: MyString
   apellidos: MyString
   email: MyString2@test.com
   foto: MyString
-  user_id: ian
+  user: ian
