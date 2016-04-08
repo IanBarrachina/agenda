@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @contacto.nombre %>
+</p>
+
+<p>
+  <strong>Apellidos:</strong>
+  <%= @contacto.apellidos %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contacto.email %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= image_tag @contacto.foto.thumb.url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @contacto.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_contacto_path(@contacto) %> |
+<%= link_to 'Back', contactos_path %>

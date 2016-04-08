@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :telefonos
+  resources :tipos
+  resources :contactos
   root 'main_pages#home'
 
   devise_for :users

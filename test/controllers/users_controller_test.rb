@@ -16,13 +16,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-#  test "should create user" do
-#    assert_difference('User.count') do
-#      post :create, user: { :email => 'prueba2@prueba.com', :password => 'passworddeprueba2', :password_confirmation => 'passworddeprueba2' }
-#    end
+  test "should create user" do
+    assert_difference('User.count') do
+      post :create, user: { :email => 'prueba2@prueba.com', :password => 'passworddeprueba2', :password_confirmation => 'passworddeprueba2' }
+    end
 
-#    assert_redirected_to user_path(assigns(:user))
-#  end
+    assert_redirected_to user_path(assigns(:user))
+  end
 
   test "should show user" do
     get :show, id: @user

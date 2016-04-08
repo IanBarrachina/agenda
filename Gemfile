@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use Devise for user authentication
 gem 'devise'
+# Use carrierwave to upload files
+gem 'carrierwave'
+# Use mini_magick to resize images
+gem 'mini_magick'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Bootstrap
