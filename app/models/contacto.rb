@@ -3,7 +3,8 @@ class Contacto < ActiveRecord::Base
   belongs_to :user
   belongs_to :tipo
   has_many :telefonos, :dependent => :destroy
-  accepts_nested_attributes_for :telefonos, allow_destroy: true
+  accepts_nested_attributes_for :telefonos, allow_destroy: true,
+                                :reject_if => lambda { |a| a[:numero].blank? }
 
 
   before_save { self.email = email.downcase }
