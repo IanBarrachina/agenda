@@ -2,6 +2,8 @@ class Contacto < ActiveRecord::Base
   mount_uploader :foto, ImageUploader
   belongs_to :user
   belongs_to :tipo
+  has_many :telefonos, :dependent => :destroy
+  accepts_nested_attributes_for :telefonos, allow_destroy: true
 
 
   before_save { self.email = email.downcase }

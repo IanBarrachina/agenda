@@ -16,11 +16,13 @@ class ContactosController < ApplicationController
   def new
     @contacto = Contacto.new
     @tipos = Tipo.all
+    @contacto.telefonos.build
   end
 
   # GET /contactos/1/edit
   def edit
     @tipos = Tipo.all
+    @contacto.telefonos.build
   end
 
   # POST /contactos
@@ -73,6 +75,6 @@ class ContactosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contacto_params
-      params.require(:contacto).permit(:nombre, :apellidos, :email, :foto, :user_id, :tipo_id, :remove_foto)
+      params.require(:contacto).permit(:nombre, :apellidos, :email, :foto, :user_id, :tipo_id, :remove_foto, telefonos_attributes: [ :id, :numero ])
     end
 end

@@ -6,6 +6,7 @@ one:
   email: MyString1@test.com
   foto: MyString
   user: ian
+  tipo: familiar
 
 two:
   nombre: MyString
@@ -13,3 +14,4 @@ two:
   email: MyString2@test.com
   foto: MyString
   user: ian
+  tipo: amigo

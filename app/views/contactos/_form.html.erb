@@ -43,6 +43,15 @@
       <%= label tipo.tipo, tipo.tipo %><br>
     <% end %>
   </div>
+   Telefonos:
+  <div class="field">
+    <%= f.fields_for :telefonos do |t| %>
+      <div class="field">
+        <%= t.label :numero %><br>
+        <%= t.text_field :numero %>
+      </div>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

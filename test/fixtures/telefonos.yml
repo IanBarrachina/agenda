@@ -2,8 +2,8 @@
 
 one:
   numero: MyString
-  contacto_id: 
+  contacto: one
 
 two:
   numero: MyString
-  contacto_id: 
+  contacto: two

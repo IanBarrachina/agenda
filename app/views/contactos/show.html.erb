@@ -24,6 +24,13 @@
 </p>
 
 <p>
+  <strong>Telefono:</strong>
+    <% @contacto.telefonos.each do |telefono| %>
+      <%= telefono.numero %>
+    <% end %>
+</p>
+
+<p>
   <strong>User:</strong>
   <%= @contacto.user.email %>
 </p>

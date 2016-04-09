@@ -18,7 +18,7 @@ class ContactosControllerTest < ActionController::TestCase
 
   test "should create contacto" do
     assert_difference('Contacto.count') do
-      post :create, contacto: { apellidos: @contacto.apellidos, email: "aaa@contacto.com", foto: @contacto.foto, nombre: @contacto.nombre, user_id: @contacto.user_id }
+      post :create, contacto: { apellidos: @contacto.apellidos, email: "aaa@contacto.com", foto: @contacto.foto, nombre: @contacto.nombre, user_id: @contacto.user_id, tipo_id: @contacto.tipo.id }
     end
 
     assert_redirected_to contacto_path(assigns(:contacto))
