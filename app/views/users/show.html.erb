@@ -1,6 +1,36 @@
 <p>
   <strong>e-mail:</strong>
   <%= @user.email %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<h1>Contactos:</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Email</th>
+      <th>Foto</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.contactos.each do |contacto| %>
+      <tr>
+        <td><%= contacto.nombre %></td>
+        <td><%= contacto.apellidos %></td>
+        <td><%= contacto.email %></td>
+        <td><%= image_tag contacto.foto.thumb.url %></td>
+        <td><%= contacto.user.email %></td>
+        <td><%= link_to 'Show', contacto %></td>
+        <td><%= link_to 'Edit', edit_contacto_path(contacto) %></td>
+        <td><%= link_to 'Destroy', contacto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nuevo contacto', new_contacto_path %>

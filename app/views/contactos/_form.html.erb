@@ -32,9 +32,16 @@
       <%= f.check_box :remove_foto %> 
     <% end %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+  <div class="radio_button">
+    <%= f.label :tipo_id %><br>
+    <% @tipos.each do |tipo| %>
+      <% if @contacto.tipo == tipo %>
+        <%= f.radio_button :tipo_id, tipo.id, :checked => true %> 
+      <% else %>
+        <%= f.radio_button :tipo_id, tipo.id %>
+      <% end %>
+      <%= label tipo.tipo, tipo.tipo %><br>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>
