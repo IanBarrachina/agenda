@@ -5,6 +5,9 @@
 </p>
 
 <h1>Contactos:</h1>
+
+<%= will_paginate @contactos %>
+
 <table>
   <thead>
     <tr>
@@ -18,7 +21,7 @@
   </thead>
 
   <tbody>
-    <% @user.contactos.each do |contacto| %>
+    <% @contactos.each do |contacto| %>
       <tr>
         <td><%= contacto.nombre %></td>
         <td><%= contacto.apellidos %></td>
@@ -32,5 +35,7 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @contactos %>
 
 <%= link_to 'Nuevo contacto', new_contacto_path %>

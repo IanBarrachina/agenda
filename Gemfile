@@ -13,6 +13,10 @@ gem 'mini_magick'
 gem 'sqlite3'
 # Bootstrap
 gem 'bootstrap-sass', '3.2.0.0'
+# Use will paginate to split large arrays of data
+gem 'will_paginate',           '3.0.7'
+# Use bootstrap-will_paginate to display pagination
+gem 'bootstrap-will_paginate', '0.0.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

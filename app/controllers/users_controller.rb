@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @contactos = @user.contactos.paginate(page: params[:page], :per_page => 10)
   end
 
   # GET /users/new
