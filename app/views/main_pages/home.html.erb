@@ -1,13 +1,10 @@
-<% if user_signed_in? %>
-<h1>Bienvenido tontaco</h1>
-<% else %>
   <div class="container">
-  <div class="jumbotron">
-    <h1>Bienvenido</h1> 
-    <p>Para empezar, haz Login con tu cuenta o crea una nueva cuenta </p> 
+    <div class="jumbotron">
+      <h1>Bienvenido</h1> 
+      <p>Para empezar, haz Login con tu cuenta o crea una nueva cuenta </p> 
+    </div>
   </div>
-</div>
-  <%= button_to('Login', new_user_session_path) %>  
-<% end %>
+  <%= link_to('Login', new_user_session_path) %>  
+
 
 
