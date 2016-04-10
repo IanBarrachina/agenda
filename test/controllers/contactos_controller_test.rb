@@ -1,15 +1,18 @@
+# Comento la ruta que no vamos a permitir, al menos en esta version
+
 require 'test_helper'
 
 class ContactosControllerTest < ActionController::TestCase
   setup do
+    sign_in(:user, users(:ian))
     @contacto = contactos(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:contactos)
-  end
+#  test "should get index" do
+#    get :index
+#    assert_response :success
+#    assert_not_nil assigns(:contactos)
+#  end
 
   test "should get new" do
     get :new

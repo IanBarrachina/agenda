@@ -3,13 +3,14 @@ class Api::V1::BaseController < ApplicationController
 
   before_action :destroy_session
 
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
-
-  def not_found
-    return api_error(status: 404, errors: 'Not found')
-  end
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
   def destroy_session
     request.session_options[:skip] = true
   end
+
+  private
+    def record_not_found(error)
+      render json: { error: error.message }, status: :not_found
+    end
 end

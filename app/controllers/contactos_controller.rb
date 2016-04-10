@@ -1,5 +1,9 @@
 class ContactosController < ApplicationController
+  before_filter :authenticate_user!
+  
   before_action :set_contacto, only: [:show, :edit, :update, :destroy]
+
+  before_filter :check_user, only: [:show, :edit, :update, :destroy]
 
   # GET /contactos
   # GET /contactos.json
@@ -62,7 +66,7 @@ class ContactosController < ApplicationController
   def destroy
     @contacto.destroy
     respond_to do |format|
-      format.html { redirect_to contactos_url, notice: 'Contacto was successfully destroyed.' }
+      format.html { redirect_to current_user, notice: 'Contacto was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -76,5 +80,9 @@ class ContactosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contacto_params
       params.require(:contacto).permit(:nombre, :apellidos, :email, :foto, :user_id, :tipo_id, :remove_foto, telefonos_attributes: [ :id, :numero ])
+    end
+
+    def check_user
+      redirect_to current_user, notice: "Restricted area!" if current_user.contactos.exclude?(@contacto)
     end
 end

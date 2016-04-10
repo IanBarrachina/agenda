@@ -1,3 +1,5 @@
+# Comentamos esto, por si en algun momento necesitamos escalarlo y crear tipos de contacto personalizados
+=begin
 require 'test_helper'
 
 class TiposControllerTest < ActionController::TestCase
@@ -47,3 +49,4 @@ class TiposControllerTest < ActionController::TestCase
     assert_redirected_to tipos_path
   end
 end
+=end

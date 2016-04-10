@@ -9,8 +9,6 @@ gem 'devise'
 gem 'carrierwave'
 # Use mini_magick to resize images
 gem 'mini_magick'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Bootstrap
 gem 'bootstrap-sass', '3.2.0.0'
 # Use will paginate to split large arrays of data
@@ -49,6 +47,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
@@ -59,3 +59,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
