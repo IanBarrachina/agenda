@@ -4,7 +4,8 @@ require 'test_helper'
 
 class ContactosControllerTest < ActionController::TestCase
   setup do
-    sign_in(:user, users(:ian))
+    @user = users(:ian)
+    sign_in(:user, @user)
     @contacto = contactos(:one)
   end
 
@@ -47,6 +48,6 @@ class ContactosControllerTest < ActionController::TestCase
       delete :destroy, id: @contacto
     end
 
-    assert_redirected_to contactos_path
+    assert_redirected_to @user
   end
 end
