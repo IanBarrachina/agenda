@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, :only => [:show, :edit, :update, :destroy]
+  post 'users/:id' => 'users#find'
   resources :contactos, :only => [:create, :new, :edit, :show, :update, :destroy]
 
   # Example resource route with options:

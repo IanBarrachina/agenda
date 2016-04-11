@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :find, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @contactos = @user.contactos.paginate(page: params[:page], :per_page => 10)
+  end
+
+  def find
+    @contactos = @user.contactos.where("nombre LIKE ? OR apellidos LIKE ?", "%#{params[:nombre]}%", "%#{params[:nombre]}%").paginate(page: params[:page], :per_page => 10)
   end
 
   # GET /users/new
