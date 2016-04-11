@@ -1,28 +1,21 @@
 <p>
   <strong>e-mail:</strong>
   <%= @user.email %>
-  <%= link_to 'Edit', edit_user_registration_path %>
+  <%= link_to 'Editar', edit_user_registration_path %>
 </p>
 
 <h1>Contactos:</h1>
 
-<%= form_tag(current_user, :method => "post") do %>
-    <%= label_tag(:nombre, "Introduce nombre o apellidos:") %>
-    <%= text_field_tag(:nombre) %>
-    <%= submit_tag("Buscar") %>
-<% end %>
-
 <%= will_paginate @contactos %>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Apellidos</th>
       <th>Email</th>
       <th>Foto</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -33,10 +26,7 @@
         <td><%= contacto.apellidos %></td>
         <td><%= contacto.email %></td>
         <td><%= image_tag contacto.foto.thumb.url %></td>
-        <td><%= contacto.user.email %></td>
-        <td><%= link_to 'Show', contacto %></td>
-        <td><%= link_to 'Edit', edit_contacto_path(contacto) %></td>
-        <td><%= link_to 'Destroy', contacto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', contacto %></td>
       </tr>
     <% end %>
   </tbody>
@@ -47,3 +37,11 @@
 <%= link_to 'Ver todos', current_user %>
 
 <%= link_to 'Nuevo contacto', new_contacto_path %>
+
+<h2>Buscador:</h2>
+
+<%= form_tag(current_user, :method => "post") do %>
+    <%= label_tag(:nombre, "Introduce nombre o apellidos:") %>
+    <%= text_field_tag(:nombre) %>
+    <%= submit_tag("Buscar") %>
+<% end %>

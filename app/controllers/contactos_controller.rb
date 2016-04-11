@@ -38,7 +38,7 @@ class ContactosController < ApplicationController
 
     respond_to do |format|
       if @contacto.save
-        format.html { redirect_to @contacto, notice: 'Contacto was successfully created.' }
+        format.html { redirect_to @contacto, notice: 'Se ha creado el contacto correctamente.' }
         format.json { render :show, status: :created, location: @contacto }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class ContactosController < ApplicationController
   def update
     respond_to do |format|
       if @contacto.update(contacto_params)
-        format.html { redirect_to @contacto, notice: 'Contacto was successfully updated.' }
+        format.html { redirect_to @contacto, notice: 'Se ha actualizado el contacto correctamente.' }
         format.json { render :show, status: :ok, location: @contacto }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class ContactosController < ApplicationController
   def destroy
     @contacto.destroy
     respond_to do |format|
-      format.html { redirect_to current_user, notice: 'Contacto was successfully destroyed.' }
+      format.html { redirect_to current_user, notice: 'Se ha eliminado el contacto correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -83,6 +83,7 @@ class ContactosController < ApplicationController
     end
 
     def check_user
-      redirect_to current_user, notice: "Restricted area!" if current_user.contactos.exclude?(@contacto)
+      redirect_to current_user, alert: "Prohibido acceso a contactos de otro usuario!" if current_user.contactos.exclude?(@contacto)
     end
+
 end

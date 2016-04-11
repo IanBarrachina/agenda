@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <p>
   <strong>Numero:</strong>
   <%= @telefono.numero %>
@@ -5,7 +7,7 @@
 
 <p>
   <strong>Contacto:</strong>
-  <%= @telefono.contacto.email %>
+  <%= @telefono.contacto %>
 </p>
 
 <%= link_to 'Edit', edit_telefono_path(@telefono) %> |

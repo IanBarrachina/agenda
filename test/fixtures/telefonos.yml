@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  numero: MyString
-  contacto: one
+  numero: 1
+  contacto_id: 
 
 two:
-  numero: MyString
-  contacto: two
+  numero: 1
+  contacto_id: 

@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @contacto %> |
-<%= link_to 'Back', current_user %>
+<%= link_to 'Eliminar', @contacto, method: :delete, data: { confirm: 'Estas seguro?' } %> |
+<%= link_to 'Atras', current_user %>

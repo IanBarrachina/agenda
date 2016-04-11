@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_user, only: [:show, :find, :edit, :update, :destroy]
+  before_filter :check_user, only: [:show, :find, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Se ha creado el usuario correctamente.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Se ha actualizado el usuario correctamente.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -62,7 +63,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Se ha eliminado el usuario correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -76,5 +77,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.fetch(:user, {})
+    end
+
+
+    def check_user
+      redirect_to current_user, alert: "Prohibido acceso a otro usuario!" if current_user != User.find(params[:id])
     end
 end

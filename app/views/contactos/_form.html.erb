@@ -48,7 +48,7 @@
     <%= f.fields_for :telefonos do |t| %>
       <div class="field">
         <%= t.label :numero %><br>
-        <%= t.text_field :numero %>
+        <%= t.number_field :numero %>
       </div>
     <% end %>
   </div>

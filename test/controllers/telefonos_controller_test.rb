@@ -1,5 +1,3 @@
-# Dejo comentado esto por si es necesario escalar los telefonos, o para posibles test en el futuro
-=begin
 require 'test_helper'
 
 class TelefonosControllerTest < ActionController::TestCase
@@ -49,4 +47,3 @@ class TelefonosControllerTest < ActionController::TestCase
     assert_redirected_to telefonos_path
   end
 end
-=end
