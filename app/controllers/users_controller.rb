@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def find
-    @contactos = @user.contactos.where("nombre LIKE ? OR apellidos LIKE ?", "%#{params[:nombre]}%", "%#{params[:nombre]}%").paginate(page: params[:page], :per_page => 10)
+    @contactos = @user.contactos.where("lower(nombre) LIKE ? OR lower(apellidos) LIKE ?", "%#{params[:nombre].downcase}%", "%#{params[:nombre].downcase}%").paginate(page: params[:page], :per_page => 10)
   end
 
   # GET /users/new
